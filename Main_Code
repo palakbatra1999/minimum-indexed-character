@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+int t;
+cin>>t;
+while(t--)
+{
+    string str,patt;
+    cin>>str>>patt;
+    
+    int found=0,i=0;
+    unordered_map<char,int>  mp;
+    for(i=0;i<str.length();i++)
+  { if(mp.find(str[i])==mp.end())
+      mp[str[i]]=i;
+  }
+    int mx=INT_MAX;
+    char c;
+    for( i=0;i<patt.length();i++)
+    {
+      if(mp.find(patt[i])!=mp.end())
+    { if(mx>mp[patt[i]])
+     {   mx=mp[patt[i]];
+         c=patt[i];
+     }
+        
+    }
+      
+    }
+    if(mx==INT_MAX)
+    cout<<"No character present"<<endl;
+    else cout<<c<<endl;
+}
+	return 0;
+}
